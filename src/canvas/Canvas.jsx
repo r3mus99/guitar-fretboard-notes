@@ -1,10 +1,15 @@
-export default function Canvas(props) {
+import { useContext } from "react";
+import { Context } from "../Context";
+
+export default function Canvas() {
+  const { selectedCanvasCol, setselectCanvasCol, canvasCols } =
+    useContext(Context);
   const transposeArray = (array) => {
     return array[0].map((_, i) => array.map((row) => row[i]));
   };
 
   const transposedCols =
-    props.cols.length > 0 ? transposeArray(props.cols) : [];
+    canvasCols.length > 0 ? transposeArray(canvasCols) : [];
 
   return (
     <table className="Canvas">
@@ -15,8 +20,8 @@ export default function Canvas(props) {
               return (
                 <td
                   key={cellIndex}
-                  className={props.selectedCol === cellIndex ? "Selected" : ""}
-                  onClick={() => props.setselectCanvasCol(cellIndex)}
+                  className={selectedCanvasCol === cellIndex ? "Selected" : ""}
+                  onClick={() => setselectCanvasCol(cellIndex)}
                 >
                   {cell}
                 </td>

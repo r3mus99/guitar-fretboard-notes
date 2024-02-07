@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { Context } from "../Context";
+
 const data = [
   ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"],
   ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
@@ -10,37 +13,37 @@ const data = [
 // todo data with flat "b" sign
 
 export default function Fretboard(props) {
+  const { setselectNote, selectedCanvasCol, canvasCols, setCanvasCols } =
+    useContext(Context);
   const onClick = (value, row, col) => {
-    if (props.canvasCols.length > 0) {
-      const updatedCanvasCols = [...props.canvasCols];
-      const oldValue = props.canvasCols[props.selectedCanvasCol][row - 1];
+    if (canvasCols.length > 0) {
+      const updatedCanvasCols = [...canvasCols];
+      const oldValue = canvasCols[selectedCanvasCol][row - 1];
       if (oldValue === col) {
-        updatedCanvasCols[props.selectedCanvasCol][row - 1] = "";
+        updatedCanvasCols[selectedCanvasCol][row - 1] = "";
       } else {
-        updatedCanvasCols[props.selectedCanvasCol][row - 1] = col;
+        updatedCanvasCols[selectedCanvasCol][row - 1] = col;
       }
 
-      props.setCanvasCols(updatedCanvasCols);
+      setCanvasCols(updatedCanvasCols);
     }
 
-    props.setselectNote(value);
+    setselectNote(value);
   };
 
   return (
     <table className="Fretboard">
-      {data.map((row, index) => (
-        <Row
-          index={index}
-          notes={row}
-          selectedNote={props.selectedNote}
-          onClick={onClick}
-        />
-      ))}
+      <tbody>
+        {data.map((row, index) => (
+          <Row key={index} index={index} notes={row} onClick={onClick} />
+        ))}
+      </tbody>
     </table>
   );
 }
 
 function Row(props) {
+  const { selectedNote } = useContext(Context);
   const backgrounds = [3, 5, 7, 9, 12];
   const handleClick = (note, rowIndex, index) => {
     if (note) {
@@ -51,11 +54,12 @@ function Row(props) {
     <tr>
       {props.notes.map((note, index) => (
         <Cell
+          key={index}
           note={note}
           bold={index === 0}
           border={index === 1}
           background={backgrounds.includes(index)}
-          selected={note && note === props.selectedNote}
+          selected={note && note === selectedNote}
           handleClick={() => handleClick(note, props.index, index)}
         />
       ))}

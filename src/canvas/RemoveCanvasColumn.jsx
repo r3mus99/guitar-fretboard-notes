@@ -1,15 +1,20 @@
-export default function RemoveCanvasColumn(props) {
+import { useContext } from "react";
+import { Context } from "../Context";
+
+export default function RemoveCanvasColumn() {
+  const { selectedCanvasCol, setselectCanvasCol, canvasCols, setCanvasCols } =
+    useContext(Context);
   const handleClick = () => {
-    if (props.selectedCanvasCol > props.canvasCols.length) {
+    if (selectedCanvasCol > canvasCols.length) {
       return;
     }
-    const updatedCanvasCols = [...props.canvasCols];
-    updatedCanvasCols.splice(props.selectedCanvasCol, 1);
+    const updatedCanvasCols = [...canvasCols];
+    updatedCanvasCols.splice(selectedCanvasCol, 1);
 
-    props.setCanvasCols(updatedCanvasCols);
+    setCanvasCols(updatedCanvasCols);
 
-    if (props.selectedCanvasCol > updatedCanvasCols.length - 1) {
-      props.setselectCanvasCol(updatedCanvasCols.length - 1);
+    if (selectedCanvasCol > updatedCanvasCols.length - 1) {
+      setselectCanvasCol(updatedCanvasCols.length - 1);
     }
   };
 
