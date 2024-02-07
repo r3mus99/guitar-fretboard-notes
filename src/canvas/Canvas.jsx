@@ -3,7 +3,8 @@ export default function Canvas(props) {
     return array[0].map((_, i) => array.map((row) => row[i]));
   };
 
-  const transposedCols = transposeArray(props.cols);
+  const transposedCols =
+    props.cols.length > 0 ? transposeArray(props.cols) : [];
 
   return (
     <table className="Canvas">

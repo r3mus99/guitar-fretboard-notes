@@ -1,20 +1,39 @@
 const data = [
-  ["E", "F", "", "G", "", "A", "", "B", "C", "", "D", "", "E"],
-  ["B", "C", "", "D", "", "E", "F", "", "G", "", "A", "", "B"],
-  ["G", "", "A", "", "B", "C", "", "D", "", "E", "F", "", "G"],
-  ["D", "", "E", "F", "", "G", "", "A", "", "B", "C", "", "D"],
-  ["A", "", "B", "C", "", "D", "", "E", "F", "", "G", "", "A"],
-  ["E", "F", "", "G", "", "A", "", "B", "C", "", "D", "", "E"],
+  ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"],
+  ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
+  ["G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"],
+  ["D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"],
+  ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A"],
+  ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"],
 ];
 
+// todo data with flat "b" sign
+
 export default function Fretboard(props) {
+  const onClick = (value, row, col) => {
+    if (props.canvasCols.length > 0) {
+      const updatedCanvasCols = [...props.canvasCols];
+      const oldValue = props.canvasCols[props.selectedCanvasCol][row - 1];
+      if (oldValue === col) {
+        updatedCanvasCols[props.selectedCanvasCol][row - 1] = "";
+      } else {
+        updatedCanvasCols[props.selectedCanvasCol][row - 1] = col;
+      }
+
+      props.setCanvasCols(updatedCanvasCols);
+    }
+
+    props.setselectNote(value);
+  };
+
   return (
     <table className="Fretboard">
-      {data.map((row) => (
+      {data.map((row, index) => (
         <Row
+          index={index}
           notes={row}
           selectedNote={props.selectedNote}
-          onClick={props.onClick}
+          onClick={onClick}
         />
       ))}
     </table>
@@ -23,9 +42,9 @@ export default function Fretboard(props) {
 
 function Row(props) {
   const backgrounds = [3, 5, 7, 9, 12];
-  const handleClick = (note) => {
+  const handleClick = (note, rowIndex, index) => {
     if (note) {
-      props.onClick(note);
+      props.onClick(note, rowIndex + 1, index);
     }
   };
   return (
@@ -37,7 +56,7 @@ function Row(props) {
           border={index === 1}
           background={backgrounds.includes(index)}
           selected={note && note === props.selectedNote}
-          handleClick={() => handleClick(note)}
+          handleClick={() => handleClick(note, props.index, index)}
         />
       ))}
     </tr>
@@ -57,9 +76,27 @@ function Cell(props) {
   } else if (props.background) {
     clName += " Background";
   }
+
+  // Check if '#' or 'b' is present in props.note and render accordingly
+  const renderNote = () => {
+    if (props.note.includes("#") || props.note.includes("b")) {
+      const noteWithoutSign = props.note.replace(/[#b]/g, "");
+      const sign = props.note.includes("#") ? "#" : "b";
+
+      return (
+        <>
+          <span className="NoteWithoutSign">{noteWithoutSign}</span>
+          <sup className="MusicSign">{sign}</sup>
+        </>
+      );
+    } else {
+      return props.note;
+    }
+  };
+
   return (
     <td className={clName} onClick={props.handleClick}>
-      {props.note}
+      {renderNote()}
     </td>
   );
 }
