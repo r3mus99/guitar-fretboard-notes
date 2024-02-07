@@ -1,0 +1,69 @@
+table {
+  text-align: center;
+  padding: 5px;
+  border: 5px solid #684fa3;
+  border-radius: 10px;
+  border-spacing: 0px;
+  font-size: 32px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.Controls {
+  display: flex;
+  padding: 20px 0;
+  gap: 10px;
+}
+
+.Controls input {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 32px;
+  text-align: center;
+  color: #684fa3;
+  box-sizing: border-box;
+}
+
+.Controls button {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 32px;
+  text-align: center;
+  color: #684fa3;
+  background-color: white;
+}
+
+.Canvas tbody tr td:last-child {
+  border-right: none;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.Border {
+  border-left: 4px solid black;
+}
+
+.Background {
+  background-color: #cacaca;
+}
+
+.Selected {
+  color: white;
+  background-color: #684fa3;
+}
