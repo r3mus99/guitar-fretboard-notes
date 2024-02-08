@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../Context";
+import "./fretboard.css";
 
 const data = [
   ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"],

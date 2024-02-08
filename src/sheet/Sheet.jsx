@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../Context";
+import "./sheet.css";
 
 const notes = ["G", "F", "E", "D", "C", "B", "A", "G", "F", "E", "D"];
 

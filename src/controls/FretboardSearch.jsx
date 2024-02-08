@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../Context";
 
-export default function FretboardInput() {
+export default function FretboardSearch() {
   const { selectedNote, setselectedNote } = useContext(Context);
   return (
     <input
