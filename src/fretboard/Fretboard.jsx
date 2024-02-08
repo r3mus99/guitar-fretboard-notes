@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../Context";
 import { isNoteSelected } from "../Utils";
-import "./fretboard.css";
+import "./fretboard.scss";
 import { data } from "./FretboardData";
 
 export default function Fretboard() {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../Context";
 import { isNoteSelected } from "../Utils";
-import "./sheet.css";
+import "./sheet.scss";
 
 const notes = [
   "G5",

@@ -1,0 +1,70 @@
+table {
+  text-align: center;
+  padding: 5px;
+  border: 5px solid black;
+  border-radius: 10px;
+  border-spacing: 0px;
+  font-size: 32px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  tbody {
+    tr {
+      td {
+        min-width: 55px;
+        height: 55px;
+        cursor: pointer;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.Selected {
+          color: white;
+          background-color: #684fa3 !important;
+        }
+      }
+
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.Controls {
+  display: flex;
+  padding: 20px 0;
+  gap: 10px;
+
+  input,
+  button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 32px;
+    text-align: center;
+    color: #684fa3;
+  }
+
+  input {
+    box-sizing: border-box;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: white;
+
+    &:hover {
+      background-color: #cacaca;
+    }
+  }
+}
+
+sup {
+  font-size: 20px;
+}

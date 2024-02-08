@@ -1,6 +1,6 @@
 import Fretboard from "./fretboard/Fretboard";
 import FretboardInput from "./controls/FretboardSearch";
-import "./styles.css";
+import "./styles.scss";
 import Canvas from "./canvas/Canvas";
 import AddCanvasColumn from "./controls/AddCanvasColumn";
 import RemoveCanvasColumn from "./controls/RemoveCanvasColumn";
