@@ -4,11 +4,15 @@ import "./styles.css";
 import Canvas from "./canvas/Canvas";
 import AddCanvasColumn from "./canvas/AddCanvasColumn";
 import RemoveCanvasColumn from "./canvas/RemoveCanvasColumn";
+import Sheet from "./sheet/Sheet";
 
 export default function App() {
   return (
     <div className="App">
-      <Fretboard />
+      <div style={{ display: "flex" }}>
+        <Fretboard />
+        <Sheet />
+      </div>
       <div className="Controls">
         <FretboardInput />
         <AddCanvasColumn />

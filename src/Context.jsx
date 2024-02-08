@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const Context = React.createContext();
 export const ContextProvider = ({ children }) => {
-  const [selectedNote, setselectNote] = useState("");
+  const [selectedNote, setselectedNote] = useState("");
   const [selectedCanvasCol, setselectCanvasCol] = useState(-1);
   const [canvasCols, setCanvasCols] = useState([]);
 
@@ -10,7 +10,7 @@ export const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         selectedNote,
-        setselectNote,
+        setselectedNote,
         selectedCanvasCol,
         setselectCanvasCol,
         canvasCols,

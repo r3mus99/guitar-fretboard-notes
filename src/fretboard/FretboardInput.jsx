@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../Context";
 
 export default function FretboardInput() {
-  const { selectedNote, setselectNote } = useContext(Context);
+  const { selectedNote, setselectedNote } = useContext(Context);
   return (
     <input
       type="text"
@@ -10,7 +10,7 @@ export default function FretboardInput() {
       value={selectedNote}
       onChange={(e) => {
         const value = e.target.value ? e.target.value.toUpperCase() : "";
-        setselectNote(value);
+        setselectedNote(value);
       }}
     />
   );

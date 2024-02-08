@@ -12,8 +12,8 @@ const data = [
 
 // todo data with flat "b" sign
 
-export default function Fretboard(props) {
-  const { setselectNote, selectedCanvasCol, canvasCols, setCanvasCols } =
+export default function Fretboard() {
+  const { setselectedNote, selectedCanvasCol, canvasCols, setCanvasCols } =
     useContext(Context);
   const onClick = (value, row, col) => {
     if (canvasCols.length > 0) {
@@ -28,7 +28,7 @@ export default function Fretboard(props) {
       setCanvasCols(updatedCanvasCols);
     }
 
-    setselectNote(value);
+    setselectedNote(value);
   };
 
   return (
