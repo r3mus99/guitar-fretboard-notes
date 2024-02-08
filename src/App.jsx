@@ -5,6 +5,10 @@ import Canvas from "./canvas/Canvas";
 import AddCanvasColumn from "./controls/AddCanvasColumn";
 import RemoveCanvasColumn from "./controls/RemoveCanvasColumn";
 import Sheet from "./sheet/Sheet";
+import * as Tone from "tone";
+
+//create a synth and connect it to the main output (your speakers)
+export const synth = new Tone.Synth().toDestination();
 
 export default function App() {
   return (

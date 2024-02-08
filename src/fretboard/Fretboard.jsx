@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { synth } from "../App";
 import { Context } from "../Context";
 import { isNoteSelected } from "../Utils";
 import "./fretboard.scss";
@@ -20,6 +21,8 @@ export default function Fretboard() {
       setCanvasCols(updatedCanvasCols);
     }
 
+    //play note for the duration of an 16th note
+    synth.triggerAttackRelease(value, "16n");
     setselectedNote(value);
   };
 

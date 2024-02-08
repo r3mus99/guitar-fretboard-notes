@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { synth } from "../App";
 import { Context } from "../Context";
 import { isNoteSelected } from "../Utils";
 import "./sheet.scss";
@@ -9,8 +10,8 @@ const notes = [
   "E5",
   "D5",
   "C5",
-  "B5",
-  "A5",
+  "B4",
+  "A4",
   "G4",
   "F4",
   "E4",
@@ -29,7 +30,10 @@ export default function Sheet() {
             isNoteSelected(note, selectedNote) ? "Note Selected" : "Note"
           }
           style={{ left: `${200 - index * 20}px` }}
-          onClick={() => setselectedNote(note)}
+          onClick={() => {
+            synth.triggerAttackRelease(note, "16n");
+            setselectedNote(note);
+          }}
         >
           {note}
         </div>

@@ -6,7 +6,7 @@ export default function FretboardSearch() {
   return (
     <input
       type="text"
-      maxLength={2}
+      maxLength={3}
       value={selectedNote}
       onChange={(e) => {
         const value = e.target.value ? e.target.value.toUpperCase() : "";
