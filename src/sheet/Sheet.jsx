@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../Context";
+import { isNoteSelected } from "../Utils";
 import "./sheet.css";
 
 const notes = [
@@ -24,7 +25,9 @@ export default function Sheet() {
       {notes.map((note, index) => (
         <div
           key={note + index}
-          className={note === selectedNote ? "Note Selected" : "Note"}
+          className={
+            isNoteSelected(note, selectedNote) ? "Note Selected" : "Note"
+          }
           style={{ left: `${200 - index * 20}px` }}
           onClick={() => setselectedNote(note)}
         >

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../Context";
+import { isNoteSelected } from "../Utils";
 import "./fretboard.css";
 import { data } from "./FretboardData";
 
@@ -50,7 +51,7 @@ function Row(props) {
           bold={index === 0}
           border={index === 1}
           background={backgrounds.includes(index)}
-          selected={note === selectedNote}
+          selected={isNoteSelected(note, selectedNote)}
           handleClick={() => handleClick(note, props.index, index)}
         />
       ))}
