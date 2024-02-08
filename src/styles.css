@@ -1,7 +1,7 @@
 table {
   text-align: center;
   padding: 5px;
-  border: 5px solid #684fa3;
+  border: 5px solid black;
   border-radius: 10px;
   border-spacing: 0px;
   font-size: 32px;
@@ -9,7 +9,7 @@ table {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-td {
+table tbody tr td {
   min-width: 55px;
   height: 55px;
   cursor: pointer;
@@ -17,7 +17,11 @@ td {
   border-bottom: 1px solid black;
 }
 
-tr:last-child td {
+table tbody tr td:last-child {
+  border-right: none;
+}
+
+table tbody tr:last-child td {
   border-bottom: none;
 }
 
@@ -47,25 +51,9 @@ tr:last-child td {
   background-color: white;
 }
 
-.Canvas tbody tr td:last-child {
-  border-right: none;
-}
-
-.Bold {
-  font-weight: bold;
-}
-
-td.Border {
-  border-left: 4px solid black;
-}
-
-.Background {
-  background-color: #ffc29d;
-}
-
 .Selected {
   color: white;
-  background-color: #684fa3;
+  background-color: #684fa3 !important;
 }
 
 sup {

@@ -36,7 +36,6 @@ export default function Fretboard() {
 
 function Row(props) {
   const { selectedNote } = useContext(Context);
-  const backgrounds = [3, 5, 7, 9, 12];
   const handleClick = (note, rowIndex, index) => {
     if (note) {
       props.onClick(note, rowIndex + 1, index);
@@ -48,9 +47,6 @@ function Row(props) {
         <Cell
           key={index}
           note={note}
-          bold={index === 0}
-          border={index === 1}
-          background={backgrounds.includes(index)}
           selected={isNoteSelected(note, selectedNote)}
           handleClick={() => handleClick(note, props.index, index)}
         />
@@ -60,19 +56,6 @@ function Row(props) {
 }
 
 function Cell(props) {
-  let clName = "Cell";
-  if (props.border) {
-    clName += " Border";
-  }
-  if (props.bold) {
-    clName += " Bold";
-  }
-  if (props.selected) {
-    clName += " Selected";
-  } else if (props.background) {
-    clName += " Background";
-  }
-
   const renderNote = () => {
     const noteWithoutSign = props.note[0];
     const sign = props.note.slice(1);
@@ -86,7 +69,10 @@ function Cell(props) {
   };
 
   return (
-    <td className={clName} onClick={props.handleClick}>
+    <td
+      className={"Cell" + (props.selected ? " Selected" : "")}
+      onClick={props.handleClick}
+    >
       {renderNote()}
     </td>
   );
