@@ -24,6 +24,10 @@ table {
         &.Selected {
           color: white;
           background-color: #684fa3 !important;
+
+          sup {
+            color: white;
+          }
         }
       }
 
@@ -65,5 +69,6 @@ table {
 }
 
 sup {
+  color: #777;
   font-size: 20px;
 }
