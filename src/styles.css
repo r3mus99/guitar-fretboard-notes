@@ -60,10 +60,14 @@ td.Border {
 }
 
 .Background {
-  background-color: #cacaca;
+  background-color: #ffc29d;
 }
 
 .Selected {
   color: white;
   background-color: #684fa3;
+}
+
+sup {
+  font-size: 20px;
 }
