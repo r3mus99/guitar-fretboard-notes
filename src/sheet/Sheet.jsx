@@ -2,7 +2,19 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import "./sheet.css";
 
-const notes = ["G", "F", "E", "D", "C", "B", "A", "G", "F", "E", "D"];
+const notes = [
+  "G5",
+  "F5",
+  "E5",
+  "D5",
+  "C5",
+  "B5",
+  "A5",
+  "G4",
+  "F4",
+  "E4",
+  "D4",
+];
 
 export default function Sheet() {
   const { selectedNote, setselectedNote } = useContext(Context);
