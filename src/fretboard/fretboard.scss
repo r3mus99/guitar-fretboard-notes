@@ -11,7 +11,12 @@ table.Fretboard {
       td:nth-child(8),
       td:nth-child(10),
       td:nth-child(13) {
-        background-color: #ffc29d;
+        color: #D06453;
+        background-color: #EFCAC4;
+
+        sup {
+          color: #D06453;
+        }
       }
     }
   }

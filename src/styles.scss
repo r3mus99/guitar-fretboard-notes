@@ -22,11 +22,11 @@ table {
         }
 
         &.Selected {
-          color: white;
-          background-color: #684fa3 !important;
+          color: #354C97 !important;
+          background-color: #AFBBE3 !important;
 
           sup {
-            color: white;
+            color: #354C97 !important;
           }
         }
       }
@@ -52,7 +52,7 @@ table {
     border-radius: 10px;
     font-size: 32px;
     text-align: center;
-    color: #684fa3;
+    color: #354C97;
   }
 
   input {
