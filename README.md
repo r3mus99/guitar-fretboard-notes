@@ -17,7 +17,7 @@ A visual learning tool for beginner guitarists. This interactive app displays no
 ## 📸 Demo
 
 👉 [Live Demo](https://r3mus99.github.io/guitar-fretboard-notes/)  
-*(hosted via GitHub Pages if applicable)*
+*(hosted via GitHub Pages)*
 
 ---
 
