@@ -2,6 +2,8 @@
 
 A visual learning tool for beginner guitarists. This interactive app displays notes on a guitar fretboard and their corresponding positions on the musical staff. It helps users quickly understand and memorize where each note is located on the instrument and how to play it.
 
+![Screenshot](./guitar-fret-notes-2.png)
+
 ---
 
 ## ✨ Features
@@ -17,7 +19,7 @@ A visual learning tool for beginner guitarists. This interactive app displays no
 ## 📸 Demo
 
 👉 [Live Demo](https://r3mus99.github.io/guitar-fretboard-notes/)  
-*(hosted via GitHub Pages if applicable)*
+*(hosted via GitHub Pages)*
 
 ---
 
